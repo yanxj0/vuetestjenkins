@@ -1,7 +1,11 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo"
+         src="../assets/logo.png"
+         @click="time=+new Date()">
+    <HelloWorld :msg.sync="msg" />
+    {{msg}}
+    {{time}}
   </div>
 </template>
 
@@ -11,6 +15,12 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'home',
+  data: () => {
+    return {
+      msg: `Welcome to Your Vue.js App`,
+      time: +new Date()
+    }
+  },
   components: {
     HelloWorld
   }
